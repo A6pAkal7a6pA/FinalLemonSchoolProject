@@ -1,28 +1,45 @@
 package gui.panel.morning;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class MorningGrud extends JPanel {
 
         private JButton buttonPrevious;
         private JButton buttonMainMenu;
-        private ScrollPane scrollPane;
-        private JTextField jTextField;
+        private JScrollPane scrollPanel;
+        private JLabel jLabel;
+        private BufferedImage image;
 
         public MorningGrud(){
             setLayout(null);
             init();
+            try{
+            image = ImageIO.read(new File("src/otzhimania.jpg"));
+            }catch (IOException e){
+
+            }
+
+        }
+
+        protected void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(image, 10, 50,jLabel.getWidth(),jLabel.getHeight(), this);
         }
 
         private void init(){
-            //JFrame frame = new JFrame();
             initButtons();
             initLabel();
-            initTextField();
             add(buttonPrevious);
             add(buttonMainMenu);
-            add(jTextField);
+            add(jLabel);
+            jLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+
         }
         private void initButtons() {
             initPreviousButton();
@@ -30,15 +47,10 @@ public class MorningGrud extends JPanel {
         }
 
         private void initLabel(){
-            //initLabelMorningMenu();
+            initJLabel();
         }
 
-        private void initScroll(){
-
-        }
-
-        private void initTextField(){
-            initJTextField();
+        private void initTextArea(){
         }
 
         private void initPreviousButton() {
@@ -51,17 +63,10 @@ public class MorningGrud extends JPanel {
             buttonMainMenu.setBounds(660, 0, 140, 25);
         }
 
-        private void initScrollPanel(){
-            scrollPane = new ScrollPane();
-        }
-
-        private void initJTextField(){
-            jTextField = new JTextField("Текстовое поле", 20);
-            jTextField.setCaretColor(Color.RED);
-            jTextField.setHorizontalAlignment(JTextField.RIGHT);
-
-
-
+        private void initJLabel(){
+            jLabel = new JLabel("В примере создается два многострочных");
+            jLabel.setBounds(400,50, 300, 200);
+            //jLabel.setBorder();
         }
 
     }
