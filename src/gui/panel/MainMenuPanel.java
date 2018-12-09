@@ -17,8 +17,12 @@ public class MainMenuPanel extends JPanel {
     private JButton buttonMainMenu;
     private JButton buttonMorning;
     private JButton buttonEvening;
-    private MyMenuBar myMenuBar;
+    private JButton buttonStart;
+
     private JLabel jLabelMainMenu;
+    private JLabel mainLabelBottom;
+    private JLabel mainLabelTop;
+
 
     public MainMenuPanel(){
         setLayout(null);
@@ -26,35 +30,40 @@ public class MainMenuPanel extends JPanel {
     }
 
    private void init(){
-        //JFrame frame = new JFrame();
         initButtons();
         initLabel();
-        add(buttonPrevious);
-        add(buttonMainMenu);
-        add(jLabelMainMenu);
-        add(buttonMorning);
-        add(buttonEvening);
-       // add(BorderLayout.CENTER, jLabelMainMenu);
+
     }
     private void initButtons() {
         initPreviousButton();
         initMainMenuButton();
-        initMorningBotton();
-        initEveningBotton();
+        initStartButton();
+        //initMorningBotton();
+       // initEveningBotton();
     }
 
     private void initLabel(){
-       initLabelMainMenu();
+      // initLabelMainMenu();
+       initMainLabelBottom();
+       initMainLabelTop();
     }
 
     private void initPreviousButton() {
         buttonPrevious = new JButton("Назад");
         buttonPrevious.setBounds(0, 0, 140, 25);
+        add(buttonPrevious);
     }
 
     private void initMainMenuButton() {
         buttonMainMenu = new JButton("Главное меню");
         buttonMainMenu.setBounds(660, 0, 140, 25);
+        add(buttonMainMenu);
+    }
+
+    private void initStartButton(){
+        buttonStart = new JButton("Начать работу с приложением");
+        buttonStart.setBounds(280,200, 250,100);
+        add(buttonStart);
     }
 
     private void initLabelMainMenu(){
@@ -63,23 +72,40 @@ public class MainMenuPanel extends JPanel {
                "фитнес-модель и пропагандист здорового образа жизни. Известен своей программой тренировок MFT28, " +
                "появлялся на обложках журналов более 200 раз.</html>");
       jLabelMainMenu.setBounds(250, 0, 300, 500);
+      add(jLabelMainMenu);
+    }
+
+    private void initMainLabelTop(){
+
+        mainLabelTop = new JLabel("Методика упражнений MFT28");
+        //mainLabelTop.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        mainLabelTop.setBounds(265,0, 300, 50);
+        mainLabelTop.setFont(new Font("Calibri", Font.PLAIN, 20));
+        add(mainLabelTop);
+
+    }
+
+    private void initMainLabelBottom(){
+
+        mainLabelBottom = new JLabel("Информация об авторе.");
+        mainLabelBottom.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        mainLabelBottom.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1.5f)));
+        mainLabelBottom.setBounds(-1,545,800,30);
+        mainLabelBottom.setHorizontalAlignment(SwingConstants.CENTER);
+
+        add(mainLabelBottom);
     }
 
     private void initMorningBotton(){
         buttonMorning = new JButton("Утренняя тренировка");
-        buttonMorning.setBounds(10, 50, 220, 500);
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                morningMenuPanel = new MorningMenuPanel();
-            }
-        });
+        buttonMorning.setBounds(10, 42, 220, 500);
+        add(buttonMorning);
     }
 
     private void initEveningBotton(){
         buttonEvening = new JButton("Вечерняя тренировка");
-        buttonEvening.setBounds(565, 50, 220, 500);
+        buttonEvening.setBounds(565, 42, 220, 500);
+        add(buttonEvening);
     }
 
 }

@@ -22,15 +22,15 @@ public class MyFrame extends JFrame {
         init();
     }
 
-    private void init(){
+    private void init() {
         this.setTitle("Дневник упражнений по методике Грег Плитта");
 
         Dimension frameDimension = new Dimension(800, 600);
         setSize(frameDimension);
 
         //главное меню
-//        mainMenuPanel = new MainMenuPanel();
-//        getContentPane().add(mainMenuPanel);
+        mainMenuPanel = new MainMenuPanel();
+        getContentPane().add(mainMenuPanel);
         //утренняя тренировка
 //        morningMenuPanel = new MorningMenuPanel();
 //        getContentPane().add(morningMenuPanel);
@@ -38,8 +38,8 @@ public class MyFrame extends JFrame {
 //        eveningMenuPanel = new EveningMenuPanel();
 //        getContentPane().add(eveningMenuPanel);
         //утренняя грудь
-        morningGrud = new MorningGrud();
-        getContentPane().add(morningGrud);
+//        morningGrud = new MorningGrud();
+//        getContentPane().add(morningGrud);
 
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,5 +49,6 @@ public class MyFrame extends JFrame {
 
         setVisible(true);
     }
-
 }
+
+

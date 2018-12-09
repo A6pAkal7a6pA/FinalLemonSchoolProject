@@ -30,6 +30,7 @@ public class EveningMenuPanel extends JPanel {
         add(buttonPlechi);
         add(buttonSpina);
         add(jLabelEveningMenu);
+
     }
     private void initButtons() {
         initPreviousButton();
